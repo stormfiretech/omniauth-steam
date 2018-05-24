@@ -53,8 +53,9 @@ module OmniAuth
         @steam_id ||= begin
                         claimed_id = openid_response.display_identifier.split('/').last
                         expected_uri = %r{\Ahttps?:\/\/steamcommunity\.com\/openid\/id\/#{claimed_id}\Z}
-                        puts openid_response.endpoint
+                        puts "URL: #{openid_response.endpoint}"
                         unless expected_uri.match(openid_response.endpoint.claimed_id)
+                          puts "WHAT HAPPENED? #{openid_response.endpoint.claimed_id}"
                           raise 'Steam Claimed ID mismatch!'
                         end
                         claimed_id
