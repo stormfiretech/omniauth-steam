@@ -9,6 +9,8 @@ module OmniAuth
       option :api_key, nil
       option :name, "steam"
       option :identifier, "https://steamcommunity.com/openid"
+      
+      puts openid_response
 
       uid { steam_id }
 
